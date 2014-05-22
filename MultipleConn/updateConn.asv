@@ -1,0 +1,21 @@
+function updateConn(servID, connID, paramArry)
+% updateConn Update all the parameters for the connection to be reproduced.
+%   @servID: the id indicating the server where the connnection is on.
+%   @connID: the id indicating the order of the connection on the server.
+%   @paramArry: an 1x4 array with [arrivalTS endTS opTS opDepth]
+%               arrivalTS --- The arrival timestamp of the connection
+%               endTS --- The finishing timestamp of the connection
+%               opTS --- The next reproduce operation timestamp
+%               opDethe reproducing times of the connection.
+
+%   "curTS". Split all the connections for reproducing and change the
+%   starting and finishing timestamp of these connection. Change the
+%   reproducing depth and add new connection by choosing the empty vacancies
+%   from the empty queue list "emptyConnQueue". Update the total connection
+%   number "connNum" and total open server number "serverNum" if necessary.
+%   @curTS: the current timestamp the the event (Here the event is
+%   reproducing a connection)
+%   Copyright Aug. 20, 2012, Chen Wang, reproduceConn.m
+
+
+end

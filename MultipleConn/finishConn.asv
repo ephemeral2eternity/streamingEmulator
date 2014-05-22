@@ -1,0 +1,48 @@
+function finishConn(curTS)
+% finishConn Finish all the connections that end in the current time
+%   "curTS". Delete all the finished connections and add those vacancies to
+%   the empty queue list "emptyConnQueue". Change the total connection
+%   number "connNum" and total open server number "serverNum".
+%
+%   @curTS: the current timestamp the the event (Here the event is finishing
+%           a connection)
+%
+%   Copyright Aug. 21, 2012, Chen Wang, addConnection.m
+
+global servQ;
+global emptyConnQueue;
+global connNum;
+global curConnQueue;
+
+import java.util.LinkedList
+
+itr = curConnQueue.listIterator();
+while itr.hasNext()
+    scID = itr.next();
+    serverID = scID(1);
+    connID = scID(2); 
+
+    servFinTS = servQ{serverID}(connID, 2);
+    if servFinTS == curTS
+        
+end
+
+for i = 1 : length(servQ)
+    servFinTS = servQ{i}(:, 2);
+    
+    finInd = find(servFinTS == curTS);
+    
+    % Add Finishing connections to empty list.
+    if ~isempty(finInd)
+        for j = length(finInd)
+            emptyConnQueue.add([i finInd(j)]);
+            connNum = connNum - 1; % Reduce one connection in the total count.
+            curConnQueue.
+        end
+
+        % Set all parameters to 0 which is defaultly null.
+        servQ{i}(finInd, :) = 0;
+    end
+end
+
+end
